@@ -1,7 +1,7 @@
 // Define the type of the environment variables.
 declare interface Env {
   readonly NODE_ENV: string;
-  // Replace the following with your own environment variables.
+  // Replace the following with your own environment variables. https://dev.to/dimeloper/managing-environment-variables-in-angular-apps-14gn
   // Example: NGX_VERSION: string;
   readonly NG_APP_API_KEY: string;
   readonly NG_APP_PROJECT_ID: string;
