@@ -4,12 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-grid',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      grid works!
-    </p>
-  `,
-  styles: ``
+  templateUrl: './grid.component.html',
+  styleUrl: './grid.component.scss'
 })
 export class GridComponent {
 
