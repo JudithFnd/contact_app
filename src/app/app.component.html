@@ -1,2 +1,18 @@
-<app-toolbar />
-<router-outlet />
+<section>
+  <mat-card>
+    <mat-card-content>
+      <app-toolbar (onNewContactEvent)="onClickAddNewContact()"></app-toolbar>
+
+      <!--
+      <router-outlet /> is where Angular displays the component for the current route.
+      It works with the Angular Router to load the right component based on the route settings.
+      For example:
+      - If the user navigates to '/home', HomeComponent will appear here.
+      - If the user navigates to '/about', AboutComponent will replace it.
+      -->
+      <router-outlet />
+
+
+    </mat-card-content>
+  </mat-card>
+</section>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, output } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -22,7 +22,7 @@ const MATERIAL_MODULES = [MatToolbarModule, MatIconModule, MatButtonModule]; // 
       </a>
 
       <span class="spacer"></span>
-      <a mat-button>
+      <a mat-button (click)="emitClick()">
         <mat-icon>add_box</mat-icon>
         <span>New contact</span>
       </a>
@@ -30,6 +30,13 @@ const MATERIAL_MODULES = [MatToolbarModule, MatIconModule, MatButtonModule]; // 
   `,
   styles: ``
 })
+
 export class ToolbarComponent {
+
+  onNewContactEvent = output<void>(); // Declares a custom event (output) to notify the parent component when the button is clicked.
+
+  emitClick(): void {
+    this.onNewContactEvent.emit();   // Emits the event when the button is clicked, allowing the parent component to respond.
+  }
 
 }
