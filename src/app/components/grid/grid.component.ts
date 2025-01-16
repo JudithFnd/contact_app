@@ -1,11 +1,12 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, input, OnInit, viewChild } from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-grid',
   standalone: true,
-  imports: [MatPaginator, MatTableModule],
+  imports: [MatPaginator, MatTableModule, MatSortModule],
   templateUrl: './grid.component.html',
   styleUrl: './grid.component.scss'
 })
@@ -15,9 +16,11 @@ export class GridComponent<T> implements OnInit { // <T>: It is a generic that a
   data = input.required<T[]>();
 
   dataSource = new MatTableDataSource<T>();
+  private readonly _sort = viewChild.required<MatSort>(MatSort);
 
   ngOnInit(): void {
     this.dataSource.data = this.data();
+    this.dataSource.sort = this._sort();
   }
 
 }
