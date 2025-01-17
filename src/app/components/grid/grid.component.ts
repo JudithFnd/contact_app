@@ -10,9 +10,11 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
   templateUrl: './grid.component.html',
   styleUrl: './grid.component.scss'
 })
+
 export class GridComponent<T> implements OnInit { // <T>: It is a generic that allows GridComponent to work with any type of data, which makes it reusable.
-                                                  // the class implements the OnInit interface, which makes it necessary to define the ngOnInit method.
-  displayedColumns = input.required<string[]>();
+                                                  // Implements OnInit to perform initialization logic when the component loads.
+
+  displayedColumns = input.required<string[]>(); // Specifies which columns will be displayed in the table.
   data = input.required<T[]>();
 
   dataSource = new MatTableDataSource<T>();
