@@ -19,10 +19,13 @@ export class GridComponent<T> implements OnInit { // <T>: It is a generic that a
 
   dataSource = new MatTableDataSource<T>();
   private readonly _sort = viewChild.required<MatSort>(MatSort);
+  private readonly _paginator = viewChild.required<MatPaginator>(MatPaginator);
+
 
   ngOnInit(): void {
     this.dataSource.data = this.data();
     this.dataSource.sort = this._sort();
+    this.dataSource.paginator = this._paginator();
   }
 
 }
