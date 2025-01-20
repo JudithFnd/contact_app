@@ -18,30 +18,32 @@ export class GridComponent<T> implements OnInit { // <T>: It is a generic that a
                                                   // Implements OnInit to perform initialization logic when the component loads.
 
   displayedColumns = input.required<string[]>(); // Specifies which columns will be displayed in the table.
-  data = input.required<T[]>();
+  data = input.required<T[]>(); // Holds the table data.
 
   dataSource = new MatTableDataSource<T>();
-  valueToFilter = signal('');
-  private readonly _sort = viewChild.required<MatSort>(MatSort);
-  private readonly _paginator = viewChild.required<MatPaginator>(MatPaginator);
+  valueToFilter = signal(''); // Stores the current filter value.
+  private readonly _sort = viewChild.required<MatSort>(MatSort); // Reference to table sorting.
+  private readonly _paginator = viewChild.required<MatPaginator>(MatPaginator); // Reference to table pagination.
+
 
   constructor() {
     effect(()=> {
       if(this.valueToFilter()) {
-        this.dataSource.filter = this.valueToFilter();
+        this.dataSource.filter = this.valueToFilter(); // Applies the filter whenever the value changes
       }
-    }, {allowSignalWrites: true} )
+    }, {allowSignalWrites: true} ) // Allows updating signal values within the effect.
   }
 
   ngOnInit(): void {
-    this.dataSource.data = this.data();
-    this.dataSource.sort = this._sort();
-    this.dataSource.paginator = this._paginator();
+    this.dataSource.data = this.data(); // Sets the table's data source with the provided data.
+    this.dataSource.sort = this._sort(); // Sets up sorting for the data source.
+    this.dataSource.paginator = this._paginator(); // Sets up pagination for the data source.
+
   }
 
   applyFilter(event:Event): void {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
+    const filterValue = (event.target as HTMLInputElement).value; // Retrieves the input value from the event.
+    this.dataSource.filter = filterValue.trim().toLocaleLowerCase(); // Applies the filter after trimming and converting to lowercase.
   }
 
 }
