@@ -30,6 +30,8 @@ export class GridComponent<T> implements OnInit { // <T>: It is a generic that a
     effect(()=> {
       if(this.valueToFilter()) {
         this.dataSource.filter = this.valueToFilter(); // Applies the filter whenever the value changes
+      } else {
+        this.dataSource.filter = "";
       }
     }, {allowSignalWrites: true} ) // Allows updating signal values within the effect.
   }
