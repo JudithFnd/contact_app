@@ -5,11 +5,13 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInput} from '@angular/material/input';
 import { FilterComponent } from './filter/filter.component';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-grid',
   standalone: true,
-  imports: [MatPaginator, MatTableModule, MatSortModule, FilterComponent],
+  imports: [MatPaginator, MatTableModule, MatSortModule, FilterComponent, MatButtonModule, MatIconModule],
   templateUrl: './grid.component.html',
   styleUrl: './grid.component.scss'
 })

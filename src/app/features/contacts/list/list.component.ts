@@ -37,5 +37,5 @@ const ELEMENT_DATA: any[] = [
 })
 export class ListComponent {
   data = ELEMENT_DATA;
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns = ['position', 'name', 'weight', 'symbol', 'action'];
 }
