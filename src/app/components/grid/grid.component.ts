@@ -21,6 +21,7 @@ export class GridComponent<T> implements OnInit { // <T>: It is a generic that a
 
   displayedColumns = input.required<string[]>(); // Specifies which columns will be displayed in the table.
   data = input.required<T[]>(); // Holds the table data.
+  sortableColumns = input<string[]>([]);
 
   dataSource = new MatTableDataSource<T>();
   valueToFilter = signal(''); // Stores the current filter value.
