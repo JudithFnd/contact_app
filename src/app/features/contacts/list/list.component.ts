@@ -30,7 +30,7 @@ const ELEMENT_DATA: any[] = [
   imports: [GridComponent],
   template: `
     <section>
-      <app-grid [displayedColumns]="displayedColumns" [data]="data" [sortableColumns]="sortables"] />
+      <app-grid [displayedColumns]="displayedColumns" [data]="data" [sortableColumns]="sortables" />
     </section>
   `,
   styles: ``
