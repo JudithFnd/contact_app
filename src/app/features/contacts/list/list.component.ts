@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GridComponent } from '@components/grid/grid.component';
+import { ColumnKeys, Contact } from '../contact.interfaces';
 
 const ELEMENT_DATA: any[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -37,6 +38,6 @@ const ELEMENT_DATA: any[] = [
 })
 export class ListComponent {
   data = ELEMENT_DATA;
-  displayedColumns:any = ['position', 'name', 'weight', 'symbol', 'action'];
+  displayedColumns:ColumnKeys<Contact> = ['id', 'name', 'email', 'phone', 'action'];
   sortables:any = ['position', 'name', 'weight', 'symbol'];
 }
